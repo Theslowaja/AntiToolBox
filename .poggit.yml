@@ -5,5 +5,5 @@ branches:
 projects:
   AntiToolBox:
     path: ""
-    icon: "download.png"
+    icon: icon.png
 ...
