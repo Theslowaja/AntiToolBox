@@ -7,6 +7,7 @@ use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerLoginEvent;
 use pocketmine\Server;
 use pocketmine\utils\TextFormat;
+use pocketmine\permission\DefaultPermissions;
 
 class Main implements Listener{
 
@@ -22,7 +23,7 @@ class Main implements Listener{
                 $model = strtoupper($devicemodel[0]);
                 if($model !== $devicemodel[0]){
                     foreach (Server::getInstance()->getOnlinePlayers() as $p) {
-                        if($player->hasPermission("antitoolbox.log")){
+                        if($player->hasPermission(DefaultPermissions::ROOT_OPERATOR)){
                             $p->sendMessage(TextFormat::RED . "STAFF > " . TextFormat::WHITE . $player->getName() . " Detected as Toolbox");
                         }
                         $event->getPlayer()->kick("Toolbox is not allowed");
