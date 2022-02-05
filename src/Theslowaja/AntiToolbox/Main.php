@@ -8,7 +8,7 @@ use pocketmine\event\player\PlayerLoginEvent;
 use pocketmine\Server;
 use pocketmine\utils\TextFormat;
 
-class AntiCheatListener implements Listener{
+class Main implements Listener{
 
 
     public function onLogin(PlayerLoginEvent $event){
