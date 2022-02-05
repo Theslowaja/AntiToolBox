@@ -1,6 +1,6 @@
 <?php
 
-namespace Theslowaja\AntiToolxok;
+namespace Theslowaja\AntiToolbox;
 
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerJoinEvent;
