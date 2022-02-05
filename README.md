@@ -1,5 +1,5 @@
 # AntiToolBox
-Ao Toolbox allowed for join our server
+A Toolbox not allowed for join your server
 
 # Permission
 
