@@ -3,6 +3,7 @@
 namespace Theslowaja\AntiToolbox;
 
 use pocketmine\event\Listener;
+use pocketmine\plugin\PluginBase;
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerLoginEvent;
 use pocketmine\Server;
@@ -10,12 +11,11 @@ use pocketmine\utils\TextFormat;
 use pocketmine\utils\Config;
 use pocketmine\permission\DefaultPermissions;
 
-class Main implements Listener{
+class Main  extends PluginBase implements Listener{
 
-    public function onEnable() : void{
+    public function onEnable(): void{
        $this->saveDefaultConfig();
-       $this->config = new Config($this->getDataFolder() .  "config.yml", Config::YAML);
-
+       $this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML);
     }
     
     public function onLogin(PlayerLoginEvent $event){
@@ -32,7 +32,7 @@ class Main implements Listener{
                        if($player->hasPermission(DefaultPermissions::ROOT_OPERATOR)){
                           $p->sendMessage(TextFormat::RED . "STAFF > " . TextFormat::WHITE . $player->getName() . " Detected as Toolbox");
                         }
-                        $event->getPlayer()->kick($this->Config->get("Kick-message"));
+                        $event->getPlayer()->kick($this->config->get("Kick-message"));
                     }
                 }
 
