@@ -34,6 +34,7 @@ class Main implements Listener{
                           $p->sendMessage(TextFormat::RED . "STAFF > " . TextFormat::WHITE . $player->getName() . " Detected as Toolbox");
                         }
                         $event->getPlayer()->kick($this->getConfig()->get("Kick-message"));
+                        $this->getServer()->getLogger()->info(TextFormat::RED . "ATB > " . TextFormat::WHITE . $player->getName() . " Detected as Toolbox");
                     }
                 }
 
