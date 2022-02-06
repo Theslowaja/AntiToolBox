@@ -7,6 +7,7 @@ use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerLoginEvent;
 use pocketmine\Server;
 use pocketmine\utils\TextFormat;
+use pocketmine\utils\Config;
 
 class Main implements Listener{
 
