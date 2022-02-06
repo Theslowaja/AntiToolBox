@@ -8,6 +8,7 @@ use pocketmine\event\player\PlayerLoginEvent;
 use pocketmine\Server;
 use pocketmine\utils\TextFormat;
 use pocketmine\utils\Config;
+use pocketmine\permission\DefaultPermissions;
 
 class Main implements Listener{
     
@@ -30,7 +31,7 @@ class Main implements Listener{
                 if($model !== $devicemodel[0]){
                     foreach (Server::getInstance()->getOnlinePlayers() as $p) {
                        if($player->hasPermission(DefaultPermissions::ROOT_OPERATOR)){
-                            //$p->sendMessage(TextFormat::RED . "STAFF > " . TextFormat::WHITE . $player->getName() . " Detected as Toolbox");
+                          $p->sendMessage(TextFormat::RED . "STAFF > " . TextFormat::WHITE . $player->getName() . " Detected as Toolbox");
                         }
                         $event->getPlayer()->kick($this->getConfig()->get("Kick-message"));
                     }
