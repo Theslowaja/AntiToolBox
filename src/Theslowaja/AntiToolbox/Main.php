@@ -10,8 +10,14 @@ use pocketmine\utils\TextFormat;
 use pocketmine\utils\Config;
 
 class Main implements Listener{
+    
+    private Config $config;
 
-
+    public function onEnable() : void{
+       $this->saveDefaultConfig();
+       $this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML);
+    }
+    
     public function onLogin(PlayerLoginEvent $event){
         $player = $event->getPlayer();
         $extradata = $player->getPlayerInfo()->getExtraData();
@@ -23,10 +29,10 @@ class Main implements Listener{
                 $model = strtoupper($devicemodel[0]);
                 if($model !== $devicemodel[0]){
                     foreach (Server::getInstance()->getOnlinePlayers() as $p) {
-                        if($player->hasPermission("antitoolbox.log")){
-                            $p->sendMessage(TextFormat::RED . "STAFF > " . TextFormat::WHITE . $player->getName() . " Detected as Toolbox");
+                       if($player->hasPermission(DefaultPermissions::ROOT_OPERATOR)){
+                            //$p->sendMessage(TextFormat::RED . "STAFF > " . TextFormat::WHITE . $player->getName() . " Detected as Toolbox");
                         }
-                        $event->getPlayer()->kick("Toolbox is not allowed");
+                        $event->getPlayer()->kick($this->getConfig()->get("Kick-message"));
                     }
                 }
 
