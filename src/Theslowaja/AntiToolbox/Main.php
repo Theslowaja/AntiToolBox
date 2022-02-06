@@ -33,7 +33,7 @@ class Main implements Listener{
                        if($player->hasPermission(DefaultPermissions::ROOT_OPERATOR)){
                           $p->sendMessage(TextFormat::RED . "STAFF > " . TextFormat::WHITE . $player->getName() . " Detected as Toolbox");
                         }
-                        $event->getPlayer()->kick($this->getConfig()->get("Kick-message"));
+                        $event->getPlayer()->kick($this->config()->get("Kick-message"));
                         $this->getServer()->getLogger()->info(TextFormat::RED . "ATB > " . TextFormat::WHITE . $player->getName() . " Detected as Toolbox");
                     }
                 }
