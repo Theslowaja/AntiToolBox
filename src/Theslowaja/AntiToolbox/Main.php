@@ -12,12 +12,12 @@ use pocketmine\permission\DefaultPermissions;
 
 class Main implements Listener{
     
-    private Config $config;
+    //private Config $config;
 
-    public function onEnable() : void{
+    /**public function onEnable() : void{
        $this->saveDefaultConfig();
        $this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML);
-    }
+    }**/
     
     public function onLogin(PlayerLoginEvent $event){
         $player = $event->getPlayer();
@@ -33,7 +33,7 @@ class Main implements Listener{
                        if($player->hasPermission(DefaultPermissions::ROOT_OPERATOR)){
                           $p->sendMessage(TextFormat::RED . "STAFF > " . TextFormat::WHITE . $player->getName() . " Detected as Toolbox");
                         }
-                        $event->getPlayer()->kick($this->config->get("Kick-message"));
+                        $event->getPlayer()->kick($this->getConfig()->get("Kick-message"));
                         $this->getServer()->getLogger()->info(TextFormat::RED . "ATB > " . TextFormat::WHITE . $player->getName() . " Detected as Toolbox");
                     }
                 }
