@@ -18,6 +18,7 @@ class Main  extends PluginBase implements Listener{
     public function onEnable(): void{
        $this->saveDefaultConfig();
        $this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML);
+        $this->getServer ()->getPluginManager ()->registerEvents ( $this, $this );
     }
     
     public function onLogin(PlayerLoginEvent $event){
