@@ -18,7 +18,7 @@ class Main  extends PluginBase implements Listener{
     public function onEnable(): void{
        $this->saveDefaultConfig();
        $this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML);
-        $this->getServer ()->getPluginManager ()->registerEvents ( $this, $this );
+        $this->getServer()->getPluginManager()->registerEvents($this, $this);
     }
     
     public function onLogin(PlayerLoginEvent $event){
@@ -31,11 +31,11 @@ class Main  extends PluginBase implements Listener{
             if(isset($devicemodel[0])){
                 $model = strtoupper($devicemodel[0]);
                 if($model !== $devicemodel[0]){
-                    foreach (Server::getInstance()->getOnlinePlayers() as $p) {
+                    foreach ($this->getServer()->getOnlinePlayers() as $p) {
                        if($player->hasPermission(DefaultPermissions::ROOT_OPERATOR)){
                           $p->sendMessage(TextFormat::RED . "STAFF > " . TextFormat::WHITE . $player->getName() . " Detected as Toolbox");
                         }
-                        $event->getPlayer()->kick($this->config->get("Kick-message"));
+                        $player->kick($this->config->get("Kick-message"));
                     }
                 }
 
